@@ -3,8 +3,6 @@ module.exports = () => {
     const { CleanWebpackPlugin } = require("clean-webpack-plugin");
     const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-    console.log("got in dev");
-
     return{
         entry:"./src/index.js",
         output:{
@@ -49,7 +47,7 @@ module.exports = () => {
                                 "@babel/preset-env","@babel/preset-react"
                             ],
                             plugins:[
-                                "transform-class-properties", "@babel/plugin-proposal-object-rest-spread", "@babel/plugin-proposal-class-properties"
+                                "@babel/plugin-proposal-object-rest-spread", "@babel/plugin-proposal-class-properties"
                             ]
                         }
                     }

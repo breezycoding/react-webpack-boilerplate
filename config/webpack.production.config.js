@@ -4,8 +4,6 @@ module.exports = () => {
     const { CleanWebpackPlugin } = require("clean-webpack-plugin");
     const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-    console.log("got in prod");
-
     const VENDOR_LIBS = [
         "react", "redux", "react-redux", "react-dom", "redux-thunk", "react-router", "react-router-dom"
     ];
@@ -73,10 +71,10 @@ module.exports = () => {
                         loader:"babel-loader",
                         options: {
                             presets:[
-                                "@babel/env","@babel/preset-react"
+                                "@babel/preset-env","@babel/preset-react"
                             ],
                             plugins:[
-                                "transform-class-properties","@babel/plugin-proposal-object-rest-spread", "@babel/plugin-proposal-class-properties"
+                                "@babel/plugin-proposal-object-rest-spread", "@babel/plugin-proposal-class-properties"
                             ]
                         }
                     }
@@ -85,7 +83,7 @@ module.exports = () => {
         },
         plugins: [
             new MiniCssExtractPlugin({
-                filename: "[name].[chunkhash:4].js"
+                filename: "[name].[chunkhash].css"
             }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
